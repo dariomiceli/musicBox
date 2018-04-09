@@ -1,0 +1,28 @@
+body {
+  background: white;
+}
+
+.signup-form-holder {
+  width: 200px;
+  text-align: left;
+}
+
+.nav-bar-dropdown {
+  text-align: right;
+}
+
+.nav-bar {
+  background: #80d8ff;
+  height: 55px;
+  padding: 0 25px;
+}
+
+.box-container {
+  border: 1px solid #80d8ff;
+  padding: 0 20px;
+  margin: 15px
+}
+
+.logo {
+  color: white;
+}
