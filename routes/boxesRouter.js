@@ -6,7 +6,7 @@ const
 
 boxesRouter.route('/')
 	.get(boxesCtrl.index)
-	.post(boxesCtrl.create)
+	.post(verifyToken, boxesCtrl.create)
 
 boxesRouter.use(verifyToken)
 boxesRouter.route('/:id')

@@ -27,6 +27,12 @@ app.get('/api', (req, res) => {
 app.use('/api/users', usersRouter)
 app.use('/api/boxes', boxesRouter)
 
+app.get('/api/search/:trackName', (req, res) => {
+  // 1. using req.params.trackName, search spotify with axios
+  // 2. when you get a response from spotify, then send a response to your client...
+  // res.json({ message: "You searched for: " + req.params.trackName })
+})
+
 app.use('*', (req, res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
 })

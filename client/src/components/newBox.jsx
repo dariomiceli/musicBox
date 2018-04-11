@@ -20,6 +20,7 @@ class NewBox extends React.Component {
   handleFormSubmit(evt) {
     evt.preventDefault()
     httpClient.addBox(this.state.fields).then((serverResponse) => {
+      // send users to new box page
       this.props.history.push("/boxes")
     })
   }

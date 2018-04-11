@@ -2,13 +2,8 @@ body {
   background: white;
 }
 
-.signup-form-holder {
-  width: 200px;
-  text-align: left;
-}
-
 .nav-bar-dropdown {
-  text-align: right;
+  text-align: left;
 }
 
 .nav-bar {
@@ -25,4 +20,26 @@ body {
 
 .logo {
   color: white;
+}
+
+.MaterialSideNav > a {
+  padding: 0!important;
+}
+
+.sign-up-log-in-holder {
+  width: 400px;
+  text-align: center;
+  margin: 150px auto;
+}
+
+.signup-form-holder {
+  width: 600px;
+}
+
+.userView {
+  height: 200px;
+}
+
+.artist-name {
+  padding: 0 10px;
 }

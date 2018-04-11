@@ -3,20 +3,27 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import httpClient from './httpClient';
 
 // Component Imports
-import LogIn from './components/LogIn.jsx'
-import Home from './components/Home.jsx'
-import SignUp from './components/SignUp.jsx'
 import Navbar from './components/Navbar.jsx'
-import Box from './components/Box.jsx'
 import Boxes from './components/Boxes.jsx'
 import NewBox from './components/newBox.jsx'
+import BoxDetail from './components/BoxDetail.jsx'
+import UserProfile from './components/UserProfile.jsx'
+import LogOut from './components/LogOut.jsx'
+import SignUpLogIn from './components/SignUpLogIn.jsx'
 
 class App extends Component {
-  state = { currentUser: httpClient.getCurrentUser() }
+  state = { 
+    currentUser: httpClient.getCurrentUser()
+  }
 
 	onLoginSuccess(user) {
 		this.setState({ currentUser: httpClient.getCurrentUser() })
   }
+
+  logOut() {
+		httpClient.logOut()
+		this.setState({ currentUser: null })
+	}
   
   render() {
     const { currentUser } = this.state
@@ -27,26 +34,33 @@ class App extends Component {
         
         
         <Switch>
-        
-          <Route path="/login" render={(props) => {
-						return <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
-					}} /> 
 
-          <Route path="/signup" render={(props) => {
-						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
+          <Route path="/login" render={(props) => {
+						return <SignUpLogIn {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
+
+          <Route path="/logout" render={(props) => {
+						return <LogOut onLogOut={this.logOut.bind(this)} />
+					}} />
+
+          <Route path="/users/:id" render={(props) => {
+            return <UserProfile {...props} currentUser={currentUser} />
+            }} />
 
           <Route path="/boxes/new" render={(routeProps) => {
             return currentUser
             ? <NewBox {...routeProps} />
             : <Redirect to="/login" />
           }} />
-          
-          <Route path="/boxes" render={(props) => {
-						return <Boxes />
-					}} />
 
-          <Route path="/" component={Home} />
+          <Route path='/boxes/:id' component={BoxDetail} />
+          
+          <Route path="/" render={(routeProps) => {
+            console.log(currentUser)
+            return currentUser
+            ? <Boxes />
+            : <Redirect to="/login" />
+          }} />
 
         </Switch>
       </div>

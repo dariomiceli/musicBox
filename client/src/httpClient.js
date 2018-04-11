@@ -13,10 +13,14 @@ httpClient.setToken = function(token) {
 	return token
 }
 
-httpClient.getCurrentUser = function() {
+httpClient.getCurrentUser = function(id) {
 	const token = this.getToken()
 	if(token) return jwtDecode(token)
 	return null
+}
+
+httpClient.getUser = function(id) {
+  return this({method: 'get', url: `/api/users/${id}`})
 }
 
 httpClient.logIn = function(credentials) {
@@ -60,6 +64,18 @@ httpClient.addBox = function(boxInfo) {
 
 httpClient.getBoxes = function() {
   return this({method: 'get', url: '/api/boxes'})
+}
+
+httpClient.getOneBox = function(id) {
+  return this({method: 'get', url: `/api/boxes/${id}`})
+}
+
+httpClient.updateBox = function(id, fields) {
+  return this({method: 'patch', url: `/api/boxes/${id}`, data: fields})
+}
+
+httpClient.deleteBox = function(id) {
+  return this({method: 'delete', url: `/api/boxes/${id}`})
 }
 
 // During initial app load attempt to set a localStorage stored token

@@ -18,11 +18,9 @@ module.exports = {
 
 	// create a new user
 	create: (req, res) => {
-		Box.create(req.body, (err, box) => {
+		Box.create({...req.body, user: req.user}, (err, box) => {
 			if(err) return res.json({success: false, message: "nope!!!", code: err.code})
-			// once user is created, generate a token to "log in":
-			const token = signToken(box)
-			res.json({success: true, message: "Box created. Token attached.", token})
+			res.json({success: true, message: "Box created.", box})
 		})
 	},
 
@@ -30,8 +28,8 @@ module.exports = {
 	update: (req, res) => {
 		Box.findById(req.params.id, (err, box) => {
 			Object.assign(box, req.body)
-			box.save((err, updatedUser) => {
-				res.json({success: true, message: "Box updated.", box})
+			box.save((err, updatedBox) => {
+				res.json({success: true, message: "Box updated.", box: updatedBox})
 			})
 		})
 	},
