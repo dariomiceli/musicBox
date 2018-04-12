@@ -56,7 +56,6 @@ class App extends Component {
           <Route path='/boxes/:id' component={BoxDetail} />
           
           <Route path="/" render={(routeProps) => {
-            console.log(currentUser)
             return currentUser
             ? <Boxes />
             : <Redirect to="/login" />

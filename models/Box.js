@@ -1,6 +1,5 @@
 const
 	mongoose = require('mongoose'),
-	bcrypt = require('bcrypt-nodejs'),
 	boxSchema = new mongoose.Schema({
     name: { type: String },
     track1: {

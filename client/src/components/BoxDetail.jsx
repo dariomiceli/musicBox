@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient.js'
-import { Row, Col, Button, Preloader  } from 'react-materialize'
+import { Row, Col, Button, Preloader, Input, Icon } from 'react-materialize'
 
 
 class BoxDetail extends React.Component {
@@ -12,16 +12,12 @@ class BoxDetail extends React.Component {
     track: null
   }
 
-  handleEditClick() {
-    this.setState({
-      modalOpen: true
-    })
-  }
-
   showSearchInput(trackNum) {
-    this.setState({
-      form: true,
-      track: trackNum
+    this.setState((prevState) => {
+      return {
+        form: prevState.track === trackNum ? !prevState.form : true,
+        track: trackNum
+      }
     })
   }
 
@@ -40,7 +36,6 @@ class BoxDetail extends React.Component {
 
     httpClient.updateBox(this.props.match.params.id, boxFormFields).then((serverResponse) => {
       this.setState({
-        modalOpen: false,
         box: serverResponse.data.box
       })
     })
@@ -55,9 +50,7 @@ class BoxDetail extends React.Component {
   }
 
   render(){
-    const {box} = this.state
-    console.log(this.state)
-    
+    const {box, form, track} = this.state
     if(!box) return <Col s={4}><Preloader size='big'/></Col>
     return (
       <div>
@@ -79,7 +72,6 @@ class BoxDetail extends React.Component {
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      
                       <a onClick={this.showSearchInput.bind(this, 1)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                     </div>
                     {box.track1
@@ -90,6 +82,15 @@ class BoxDetail extends React.Component {
                       }
                   </div>
                 </div>
+                  {form && track === 1
+                    ? (
+                      <div>
+                        <Input s={12} label="Track Name" validate></Input>
+                        <Button></Button>
+                        </div>
+                    )
+                    : null
+                  }
               </div>
             </Col>
             {/* 2nd track */}
@@ -107,7 +108,6 @@ class BoxDetail extends React.Component {
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      
                       <a onClick={this.showSearchInput.bind(this, 2)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                     </div>
                     {box.track2
@@ -118,6 +118,12 @@ class BoxDetail extends React.Component {
                       }
                   </div>
                 </div>
+                {form && track === 2
+                    ? (
+                      <Input s={12} label="Track Name" validate></Input>
+                    )
+                    : null
+                  }
               </div>
             </Col>
             {/* 3rd track */}
@@ -146,6 +152,12 @@ class BoxDetail extends React.Component {
                       }
                   </div>
                 </div>
+                {form && track === 3
+                    ? (
+                      <Input s={12} label="Track Name" validate></Input>
+                    )
+                    : null
+                  }
               </div>
             </Col>
             {/* 4th track */}
@@ -174,11 +186,17 @@ class BoxDetail extends React.Component {
                       }
                   </div>
                 </div>
+                {form && track === 4
+                    ? (
+                      <Input s={12} label="Track Name" validate></Input>
+                    )
+                    : null
+                  }
               </div>
             </Col>
           </Row>
         </div>
-        <Button onClick={this.handleEditClick.bind(this)}>Edit</Button>
+        {/* <Button onClick={this.handleEditClick.bind(this)}>Edit</Button> */}
         <Button onClick={this.handleDeleteClick.bind(this)}>Delete</Button>
       </div>
     )
