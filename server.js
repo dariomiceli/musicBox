@@ -8,8 +8,13 @@ const
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/music-box',
 	PORT = process.env.PORT || 3001,
   usersRouter = require('./routes/usersRouter.js'),
-  boxesRouter = require('./routes/boxesRouter.js')
-  
+  boxesRouter = require('./routes/boxesRouter.js'),
+  axios = require('axios'),
+  Spotify = require('node-spotify-api'),
+  spotifyClient = new Spotify({
+    id: process.env.SPOTIFY_CLIENT_ID,
+    secret: process.env.SPOTIFY_CLIENT_SECRET
+  })
 
 mongoose.connect(MONGODB_URI, (err) => {
 	console.log(err || `Connected to MongoDB.`)
@@ -28,9 +33,14 @@ app.use('/api/users', usersRouter)
 app.use('/api/boxes', boxesRouter)
 
 app.get('/api/search/:trackName', (req, res) => {
-  // 1. using req.params.trackName, search spotify with axios
-  // 2. when you get a response from spotify, then send a response to your client...
-  // res.json({ message: "You searched for: " + req.params.trackName })
+  spotifyClient
+  .search({ type: 'track', query: req.params.trackName, limit: 5 })
+  .then(function(response) {
+    res.json(response);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 })
 
 app.use('*', (req, res) => {

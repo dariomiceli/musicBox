@@ -1,12 +1,11 @@
 import React from 'react'
 import httpClient from '../httpClient.js'
-import { Row, Col, CardPanel, Link } from 'react-materialize'
+import { Col, Preloader } from 'react-materialize'
 
 class UserProfile extends React.Component {
 
   state = {
-    user: null,
-    boxes: null
+    user: null
   }
 
   componentDidMount() {
@@ -15,26 +14,22 @@ class UserProfile extends React.Component {
         user: serverResponse.data
       })
     })
-    // httpClient.getBoxes().then((serverResponse) => {
-    //   this.setState({
-    //     boxes: serverResponse.data
-    //   })
-    // })
   }
 
   render(){
-    const { user, boxes } = this.state
-    if(!user || !boxes) return <h1>Loading...</h1>
+    const { user } = this.state
+    if(!user) return <Col s={4}><Preloader size='big'/></Col>
     return(
       <div className='user-profile'>
-        <h1>{user.firstName}</h1>
+        <h1>{user.firstName} {user.lastName}</h1>
+        <h3>{user.email}</h3>
         <div className="signup-form-holder">
           <form>
-            <div class="row">
-              <div class="input-field col s6">
+            <div className="row">
+              <div className="input-field col s6">
                 <input type="text" placeholder="Name" name="firstName" />
               </div>
-              <div class="input-field col s6">
+              <div className="input-field col s6">
                 <input type="text" placeholder="Last Name" name="lastName" />
               </div>
             </div>
@@ -44,7 +39,7 @@ class UserProfile extends React.Component {
           </form>
         </div>
       <div className="boxes">
-      <h2>Your Boxes</h2>
+      {/* <h2>Your Boxes</h2>
         {boxes.map((b) => {
           return (
             <Row>
@@ -74,7 +69,7 @@ class UserProfile extends React.Component {
               </Col>
             </Row>
           )
-        })}
+        })} */}
       </div>
 
 

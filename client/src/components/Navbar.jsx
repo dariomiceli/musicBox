@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SideNav, Button, SideNavItem } from 'react-materialize'
-import brunoPic from './bruno.jpeg'
+import defaultPic from './default-user-pic.png'
 
 const Navbar = (props) => {
-  const { currentUser } = props
+  const { currentUser, boxes } = props
     return (
       <div className="nav-bar">
         <div className="nav-bar-dropdown">
@@ -15,20 +15,18 @@ const Navbar = (props) => {
                 waves='light'>{currentUser.firstName} {currentUser.lastName}</Button>}
                 options={{ closeOnClick: true }}
               >
+                <li><Link to={`/users/${currentUser._id}`}>{currentUser.firstName} {currentUser.lastName}</Link></li>
+                <li><Link to="/boxes">All Boxes</Link></li>
+                {/* {boxes.map((b) => {
+                  return <li><Link to="/logout">{b.name}</Link></li>
+                })} */}
+                <li><Link to="/boxes/new">Add Box</Link></li>
+                <li><Link to="/logout">Log Out</Link></li>
                 <SideNavItem className="userView" userView
                   user={{
-                  background: brunoPic,
-                  name: `${currentUser.firstName} ${currentUser.lastName}`,
-                  email: `${currentUser.email}`
+                  background: defaultPic
                   }}
                 />
-                <SideNavItem className="MaterialSideNav"><Link to="/users/{5acbd7c37490814e865dc986}">Profile</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/boxes">All Boxes</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/logout"> - box 1</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/logout"> - box 2</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/logout"> - box 3</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/boxes/new">Add Box</Link></SideNavItem>
-                <SideNavItem className="MaterialSideNav"><Link to="/logout">Log Out</Link></SideNavItem>
               </SideNav>
             )
             : null

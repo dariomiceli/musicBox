@@ -22,8 +22,8 @@ body {
   color: white;
 }
 
-.MaterialSideNav > a {
-  padding: 0!important;
+.background > img {
+  max-width: 236px;
 }
 
 .sign-up-log-in-holder {
@@ -37,9 +37,13 @@ body {
 }
 
 .userView {
-  height: 200px;
+  height: 300px;
 }
 
 .artist-name {
   padding: 0 10px;
+}
+
+.search-result:hover {
+  cursor: pointer;
 }

@@ -31,8 +31,11 @@ class NewBox extends React.Component {
       <div className="add-box-container">
         <form onChange={this.onFormChange.bind(this)} onSubmit={this.handleFormSubmit.bind(this)}>
             <h4>Name</h4>
-            <Input type="text" placeholder="Rainy Day" id="nameField" name = "name" value={name}/>
-            <Button className="button button-outline">Create Box</Button>
+            I'll use this box while I am
+            <div class="input-field inline s12">
+            <Input type="text" placeholder="Studying, Jogging, etc." id="box-name" name = "name" value={name}/>
+            <Button className="z-depth-0 light-blue accent-2 button-outline">Create Box</Button>
+            </div>
         </form>
       </div>
     )

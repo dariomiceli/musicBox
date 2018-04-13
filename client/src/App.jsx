@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import httpClient from './httpClient';
+import './index.css'
 
 // Component Imports
 import Navbar from './components/Navbar.jsx'
@@ -13,11 +14,12 @@ import SignUpLogIn from './components/SignUpLogIn.jsx'
 
 class App extends Component {
   state = { 
-    currentUser: httpClient.getCurrentUser()
+    currentUser: httpClient.getCurrentUser(),
+    boxes: httpClient.getBoxes()
   }
 
 	onLoginSuccess(user) {
-		this.setState({ currentUser: httpClient.getCurrentUser() })
+		this.setState({currentUser: httpClient.getCurrentUser()})
   }
 
   logOut() {
@@ -26,17 +28,17 @@ class App extends Component {
 	}
   
   render() {
-    const { currentUser } = this.state
+    const { currentUser, boxes } = this.state
     return (
       <div className="App">
-      <Navbar currentUser={currentUser}/>
+      <Navbar currentUser={currentUser} boxes={boxes}/>
       <div className="App container">
         
         
         <Switch>
 
           <Route path="/login" render={(props) => {
-						return <SignUpLogIn {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
+						return <SignUpLogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
           <Route path="/logout" render={(props) => {

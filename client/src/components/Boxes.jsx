@@ -2,6 +2,7 @@ import React from 'react'
 import httpClient from '../httpClient'
 import { Link } from 'react-router-dom'
 import { Row, Col} from 'react-materialize'
+import defaultTrackPic from './default-track-pic.png'
 
 
 class Boxes extends React.Component {
@@ -26,13 +27,18 @@ class Boxes extends React.Component {
       <h2>Your Boxes{boxes.user}</h2>
         {boxes.map((b) => {
           return (
-            <Row>
+            <Row key={b._id}>
               <div><Link to={`/boxes/${b._id}`}><h4>{b.name}</h4></Link></div>
               <Col  m={3}>
               <div className="row">
                 <div className="card">
                   <div className="card-image">
-                    <img src="images/sample-1.jpg" alt="" />
+                    {b.picture
+                        ? (
+                          <img src={this.state.b.track1.picture} alt="" />
+                        )
+                        : <img src={defaultTrackPic} alt="" />
+                      }
                   </div>
                   <div className="card-content">
                     {b.track1
@@ -56,7 +62,12 @@ class Boxes extends React.Component {
               <div className="row">
                 <div className="card">
                   <div className="card-image">
-                    <img src="images/sample-1.jpg" alt="" />
+                    {b.picture
+                        ? (
+                          <img src={this.state.b.track2.picture} alt="" />
+                        )
+                        : <img src={defaultTrackPic} alt="" />
+                      }
                   </div>
                   <div className="card-content">
                     {b.track2
@@ -80,7 +91,12 @@ class Boxes extends React.Component {
               <div className="row">
                 <div className="card">
                   <div className="card-image">
-                    <img src="images/sample-1.jpg"  alt=""/>
+                    {b.picture
+                        ? (
+                          <img src={this.state.b.track3.picture} alt="" />
+                        )
+                        : <img src={defaultTrackPic} alt="" />
+                      } 
                   </div>
                   <div className="card-content">
                     {b.track3
@@ -104,7 +120,12 @@ class Boxes extends React.Component {
               <div className="row">
                 <div className="card">
                   <div className="card-image">
-                    <img src="images/sample-1.jpg" alt=""/>
+                    {b.picture
+                        ? (
+                          <img src={this.state.b.track4.picture} alt="" />
+                        )
+                        : <img src={defaultTrackPic} alt="" />
+                      }
                   </div>
                   <div className="card-content">
                     {b.track4
