@@ -24,18 +24,18 @@ class Boxes extends React.Component {
     const {boxes} = this.state
     return(
       <div className="boxes">
-      <h2>Your Boxes{boxes.user}</h2>
+      <h2>Your Boxes</h2>
         {boxes.map((b) => {
           return (
             <Row key={b._id}>
               <div><Link to={`/boxes/${b._id}`}><h4>{b.name}</h4></Link></div>
               <Col  m={3}>
               <div className="row">
-                <div className="card">
+                <div className="card z-depth-0">
                   <div className="card-image">
-                    {b.picture
+                    {b.track1
                         ? (
-                          <img src={this.state.b.track1.picture} alt="" />
+                          <img src={b.track1.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       }
@@ -60,11 +60,11 @@ class Boxes extends React.Component {
             {/* 2nd track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card">
+                <div className="card z-depth-0">
                   <div className="card-image">
-                    {b.picture
+                    {b.track2
                         ? (
-                          <img src={this.state.b.track2.picture} alt="" />
+                          <img src={b.track2.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       }
@@ -89,11 +89,11 @@ class Boxes extends React.Component {
             {/* 3rd track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card">
+                <div className="card z-depth-0">
                   <div className="card-image">
-                    {b.picture
+                    {b.track3
                         ? (
-                          <img src={this.state.b.track3.picture} alt="" />
+                          <img src={b.track3.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       } 
@@ -118,11 +118,11 @@ class Boxes extends React.Component {
             {/* 4th track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card">
+                <div className="card z-depth-0">
                   <div className="card-image">
-                    {b.picture
+                    {b.track4
                         ? (
-                          <img src={this.state.b.track4.picture} alt="" />
+                          <img src={b.track4.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       }

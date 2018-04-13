@@ -46,4 +46,18 @@ body {
 
 .search-result:hover {
   cursor: pointer;
+  font-weight: bold;
+}
+
+.add-box-container {
+  margin: 90px 0;
+}
+
+.input-field {
+  width: 60%;
+  height: 50px;
+}
+
+.card {
+  padding-bottom: 18px;
 }

@@ -11,11 +11,12 @@ import BoxDetail from './components/BoxDetail.jsx'
 import UserProfile from './components/UserProfile.jsx'
 import LogOut from './components/LogOut.jsx'
 import SignUpLogIn from './components/SignUpLogIn.jsx'
+import { ServerResponse } from 'http';
 
 class App extends Component {
   state = { 
     currentUser: httpClient.getCurrentUser(),
-    boxes: httpClient.getBoxes()
+    boxes: []
   }
 
 	onLoginSuccess(user) {
@@ -25,7 +26,15 @@ class App extends Component {
   logOut() {
 		httpClient.logOut()
 		this.setState({ currentUser: null })
-	}
+  }
+
+  componentDidMount() {
+    httpClient.getBoxes().then(ServerResponse => {
+      this.setState({
+        boxes: ServerResponse.data
+      })
+    })
+  }
   
   render() {
     const { currentUser, boxes } = this.state

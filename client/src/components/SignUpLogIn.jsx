@@ -5,8 +5,6 @@ import { Row, Input, Button, Modal } from 'react-materialize'
 class SignUpLogIn extends React.Component {
   state = {
     fields: { firstName: '', lastName: '', email: '', password: ''}
-    // logInFields: { email: '', password: ''},
-    // signUpFields: { firstName: '', lastName: '', signUpEmail: '', signUpPassword: ''}
 	}
 
 	onInputChange(evt) {
@@ -28,15 +26,6 @@ class SignUpLogIn extends React.Component {
 			}
 		})
   }
-  
-  // onSignUpInputChange(evt) {
-	// 	this.setState({
-	// 		signUpFields: {
-	// 			...this.state.signUpFields,
-	// 			[evt.target.name]: evt.target.value
-	// 		}
-	// 	})
-	// }
 
 	onSignUpFormSubmit(evt) {
     evt.preventDefault()
@@ -52,7 +41,6 @@ class SignUpLogIn extends React.Component {
 
   render() {
     const {firstName, lastName, email, password} = this.state.fields
-    // const {firstName, lastName, signUpEmail, signUpPassword} = this.state.signUpFields
     return (
       <div className="sign-up-log-in-holder">
         <Modal
@@ -76,14 +64,24 @@ class SignUpLogIn extends React.Component {
                 <Input s={6} type="text" label="Last Name" name="lastName" value={lastName} />
                 <Input s={12} type="email" label="Email" name="email" value={email} id="email" className="validate" />
                 <Input s={12} type="password" label="Password" name="password" value={password} />
-                <Button className="z-depth-0 light-blue accent-2">Make Account</Button>
+                {/* <form action="#">
+                  <div class="file-field input-field">
+                    <div class="btn z-depth-0 black-text transparent">
+                      <span>Upload</span>
+                      <input className="file-submit" type="file" />
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" placeholder="Profile Picture" />
+                    </div>
+                  </div>
+                </form>*/}
+                <Button className="z-depth-0 black-text transparent">Make Account</Button>
               </form>
             </Row>
         </Modal>
       </div>
     )
   }
-  
 }
 
 export default SignUpLogIn

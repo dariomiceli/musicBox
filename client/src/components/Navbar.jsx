@@ -4,6 +4,7 @@ import { SideNav, Button, SideNavItem } from 'react-materialize'
 import defaultPic from './default-user-pic.png'
 
 const Navbar = (props) => {
+  console.log(props.boxes)
   const { currentUser, boxes } = props
     return (
       <div className="nav-bar">
@@ -17,9 +18,9 @@ const Navbar = (props) => {
               >
                 <li><Link to={`/users/${currentUser._id}`}>{currentUser.firstName} {currentUser.lastName}</Link></li>
                 <li><Link to="/boxes">All Boxes</Link></li>
-                {/* {boxes.map((b) => {
-                  return <li><Link to="/logout">{b.name}</Link></li>
-                })} */}
+                {boxes.map((b) => {
+                  return <li className="box-list"><Link to={`/boxes/${b._id}`}> - {b.name}</Link></li>
+                })} 
                 <li><Link to="/boxes/new">Add Box</Link></li>
                 <li><Link to="/logout">Log Out</Link></li>
                 <SideNavItem className="userView" userView
@@ -30,7 +31,7 @@ const Navbar = (props) => {
               </SideNav>
             )
             : null
-          }    
+          }
         </div>
       </div>
     )

@@ -5,7 +5,8 @@ const
     firstName: { type: String },
     lastName: { type: String },
 		email: { type: String, required: true, unique: true },
-		password: { type: String, required: true }
+    password: { type: String, required: true },
+    profilePicture: { type: String }
 	})
 
 // adds a method to a user document object to create a hashed password

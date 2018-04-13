@@ -1,8 +1,8 @@
 import React from 'react'
 import httpClient from '../httpClient.js'
+//import { Link } from 'react-router-dom'
 import { Row, Col, Button, Preloader, Input, Modal } from 'react-materialize'
 import defaultTrackPic from './default-track-pic.png'
-
 
 class BoxDetail extends React.Component {
 
@@ -28,17 +28,17 @@ class BoxDetail extends React.Component {
     const trackData= {}
     trackData['track'+this.state.track] = {
       name: track.name,
-      aritst: track.artists[0].name,
+      artist: track.artists[0].name,
       picture: track.album.images[1].url,
       link: track.external_urls.spotify
     }
     httpClient.updateBox(this.props.match.params.id, trackData).then(spotifyResponse => {
       this.setState({
-        trackDetails: trackData
+        trackDetails: trackData,
+        box: spotifyResponse.data.box,
+        form: false
       }, () => {
         window.$('#search-results').modal('close')
-        console.log(track)
-        console.log(trackData)
       })
     })
   }
@@ -75,6 +75,7 @@ class BoxDetail extends React.Component {
   render(){
     const {box, form, track} = this.state
     if(!box) return <Col s={4}><Preloader size='big'/></Col>
+    console.log(this.state.box.track)
     return (
       <div>
         <div className="box-container">
@@ -86,7 +87,7 @@ class BoxDetail extends React.Component {
                 <div className="col s12 m12">
                   <div className="card">
                     <div className="card-image">
-                      {box.picture
+                      {box.track1
                         ? (
                           <img src={this.state.box.track1.picture} alt="" />
                         )
@@ -97,7 +98,10 @@ class BoxDetail extends React.Component {
                       {/* Shows the track name or add-track message */}
                       {box.track1
                         ? (
+                          <div>
                           <h5>{this.state.box.track1.name}</h5>
+                          <a target="_blank" href={`${this.state.box.track1.link}`}>Open in Spotify</a>
+                          </div>
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
@@ -106,7 +110,7 @@ class BoxDetail extends React.Component {
                     {/* Shows track 1 artist */}
                     {box.track1
                       ? (
-                        <span className="card-title black-text artist-name">{box.track1.artist}</span>
+                        <span className="card-title black-text artist-name">{this.state.box.track1.artist}</span>
                       )
                       : null
                       }
@@ -129,7 +133,7 @@ class BoxDetail extends React.Component {
                 <div className="col s12 m12">
                   <div className="card">
                     <div className="card-image">
-                      {box.picture
+                      {box.track2
                         ? (
                           <img src={this.state.box.track2.picture} alt="" />
                         )
@@ -140,7 +144,10 @@ class BoxDetail extends React.Component {
                       {/* Shows the track name or add-track message */}
                       {box.track2
                         ? (
+                          <div>
                           <h5>{box.track2.name}</h5>
+                          <a target="_blank" href={`${this.state.box.track2.link}`}>Open in Spotify</a>
+                          </div>
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
@@ -172,9 +179,9 @@ class BoxDetail extends React.Component {
                 <div className="col s12 m12">
                   <div className="card">
                     <div className="card-image">
-                      {box.picture
+                      {box.track3
                         ? (
-                          <img src={this.state.box.track1.picture} alt="" />
+                          <img src={this.state.box.track3.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       }
@@ -183,7 +190,10 @@ class BoxDetail extends React.Component {
                       {/* Shows the track name or add-track message */}
                       {box.track3
                         ? (
-                          <h5>{box.track3.name}</h5>
+                          <div>
+                            <h5>{box.track3.name}</h5>
+                            <a target="_blank" href={`${this.state.box.track3.link}`}>Open in Spotify</a>
+                          </div>
                           )
                         : <h5>Add an artist, album or track!</h5>
                       }
@@ -201,7 +211,7 @@ class BoxDetail extends React.Component {
                 {/* Shows the track-search input */}
                 {form && track === 3
                     ? (
-                      <form>
+                      <form onSubmit={this.handleTrackSearch.bind(this)}>
                         <Input s={12} label="Track Name" validate></Input>
                       </form>
                     )
@@ -215,9 +225,9 @@ class BoxDetail extends React.Component {
                 <div className="col s12 m12">
                   <div className="card">
                     <div className="card-image">
-                      {box.picture
+                      {box.track4
                         ? (
-                          <img src={this.state.box.track1.picture} alt="" />
+                          <img src={this.state.box.track4.picture} alt="" />
                         )
                         : <img src={defaultTrackPic} alt="" />
                       }
@@ -226,7 +236,10 @@ class BoxDetail extends React.Component {
                       {/* Shows the track name or add-track message */}
                       {box.track4
                         ? (
-                          <h5>{box.track4.name}</h5>
+                          <div>
+                            <h5>{box.track4.name}</h5>
+                            <a target="_blank" href={`${this.state.box.track4.link}`}>Open in Spotify</a>
+                          </div>
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
@@ -244,7 +257,7 @@ class BoxDetail extends React.Component {
                 {/* Shows the track-search input */}
                 {form && track === 4
                     ? (
-                      <form>
+                      <form onSubmit={this.handleTrackSearch.bind(this)}>
                       <Input s={12} label="Track Name" validate></Input>
                       </form>
                     )
@@ -254,18 +267,21 @@ class BoxDetail extends React.Component {
             </Col>
           </Row>
         </div>
-        {/* <Button onClick={this.handleEditClick.bind(this)}>Edit</Button> */}
+
+        {/* Delete Modal */}
         <Modal
           actions={<Button className="z-depth-0 light-blue accent-2">No</Button>}
-          trigger={<Button className="z-depth-0 light-blue accent-2">Click here to delete</Button>}>
+          trigger={<Button className="z-depth-0 light-blue accent-2">Delete</Button>}>
           <span>You want to delete your {box.name} box?</span><br />
           <Button className="z-depth-0 light-blue accent-2" onClick={this.handleDeleteClick.bind(this)}>Yes!</Button>
         </Modal>
 
+        {/* Search Results Modal */}
         <Modal id="search-results">
           {this.state.searchResults.map((s) => {
+            console.log(s)
             return (
-            <div className="search-result" onClick={this.handleSearchResultClick.bind(this, s)}>{s.name}</div>
+            <div className="search-result" onClick={this.handleSearchResultClick.bind(this, s)}><span className="modal-track">{s.name}</span> - {s.artists[0].name}</div>
             )
           })}
         </Modal>

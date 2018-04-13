@@ -27,7 +27,7 @@ module.exports = {
 	// update an existing user
 	update: (req, res) => {
 		Box.findById(req.params.id, (err, box) => {
-			Object.assign(box, req.body)
+      Object.assign(box, req.body)
 			box.save((err, updatedBox) => {
 				res.json({success: true, message: "Box updated.", box: updatedBox})
 			})

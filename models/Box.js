@@ -6,22 +6,25 @@ const
       name: String,
       artist: String,
       picture: String,
-      
+      link: String
     },
     track2:{
       name: String,
       artist: String,
-      picture: String
+      picture: String,
+      link: String
     },
     track3: {
       name: String,
       artist: String,
-      picture: String
+      picture: String,
+      link: String
     },
     track4:{
       name: String,
       artist: String,
-      picture: String
+      picture: String,
+      link: String
     },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   })
