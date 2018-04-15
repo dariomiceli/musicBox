@@ -11,7 +11,6 @@ import BoxDetail from './components/BoxDetail.jsx'
 import UserProfile from './components/UserProfile.jsx'
 import LogOut from './components/LogOut.jsx'
 import SignUpLogIn from './components/SignUpLogIn.jsx'
-import { ServerResponse } from 'http';
 
 class App extends Component {
   state = { 
@@ -38,6 +37,7 @@ class App extends Component {
   
   render() {
     const { currentUser, boxes } = this.state
+    console.log(currentUser)
     return (
       <div className="App">
         <Navbar currentUser={currentUser} boxes={boxes}/>

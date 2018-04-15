@@ -16,6 +16,8 @@ const Navbar = (props) => {
                 waves='light'>{currentUser.firstName} {currentUser.lastName}</Button>}
                 options={{ closeOnClick: true }}
               >
+                <li className="side-nav-links"><Link to="/"><h4>musicBox</h4></Link></li>
+                <SideNavItem divider />
                 <li className="side-nav-links"><Link to={`/users/${currentUser._id}`}>{currentUser.firstName} {currentUser.lastName}</Link></li>
                 <li><Link to="/boxes">All Boxes</Link></li>
                 {boxes.map((b) => {
@@ -39,5 +41,3 @@ const Navbar = (props) => {
 }
 
 export default Navbar
-
-

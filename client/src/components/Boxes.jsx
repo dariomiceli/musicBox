@@ -31,7 +31,7 @@ class Boxes extends React.Component {
               <div><Link to={`/boxes/${b._id}`}><h4>{b.name}</h4></Link></div>
               <Col  m={3}>
               <div className="row">
-                <div className="card z-depth-0">
+                <div className="card z-depth-0 transparent white-text">
                   <div className="card-image">
                     {b.track1
                         ? (
@@ -50,7 +50,7 @@ class Boxes extends React.Component {
                   </div>
                   {b.track1
                     ? (
-                      <span className="card-title black-text artist-name">{b.track1.artist}</span>
+                      <span className="card-title white-text artist-name">{b.track1.artist}</span>
                     )
                     : null
                     }
@@ -60,7 +60,7 @@ class Boxes extends React.Component {
             {/* 2nd track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card z-depth-0">
+                <div className="card z-depth-0 transparent white-text">
                   <div className="card-image">
                     {b.track2
                         ? (
@@ -79,7 +79,7 @@ class Boxes extends React.Component {
                   </div>
                   {b.track2
                     ? (
-                      <span className="card-title black-text artist-name">{b.track2.artist}</span>
+                      <span className="card-title white-text artist-name">{b.track2.artist}</span>
                     )
                     : null
                     }
@@ -89,7 +89,7 @@ class Boxes extends React.Component {
             {/* 3rd track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card z-depth-0">
+                <div className="card z-depth-0 transparent white-text">
                   <div className="card-image">
                     {b.track3
                         ? (
@@ -98,7 +98,7 @@ class Boxes extends React.Component {
                         : <img src={defaultTrackPic} alt="" />
                       } 
                   </div>
-                  <div className="card-content">
+                  <div className="card-content white-text">
                     {b.track3
                       ? (
                         <h5>{b.track3.name}</h5>
@@ -108,7 +108,7 @@ class Boxes extends React.Component {
                   </div>
                   {b.track3
                     ? (
-                      <span className="card-title black-text artist-name">{b.track3.artist}</span>
+                      <span className="card-title white-text artist-name">{b.track3.artist}</span>
                     )
                     : null
                     }
@@ -118,7 +118,7 @@ class Boxes extends React.Component {
             {/* 4th track */}
             <Col  m={3}>
               <div className="row">
-                <div className="card z-depth-0">
+                <div className="card z-depth-0 transparent white-text">
                   <div className="card-image">
                     {b.track4
                         ? (
@@ -137,7 +137,7 @@ class Boxes extends React.Component {
                   </div>
                   {b.track4
                     ? (
-                      <span className="card-title black-text artist-name">{b.track4.artist}</span>
+                      <span className="card-title white-text artist-name">{b.track4.artist}</span>
                     )
                     : null
                     }

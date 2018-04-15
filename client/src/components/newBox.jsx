@@ -34,7 +34,7 @@ class NewBox extends React.Component {
             <h4>Name your box:</h4>
             <div className="input-field inline">
               <Input type="text" placeholder="Box Name" id="box-name" name = "name" value={name}/>
-              <Button className="z-depth-0 light-green accent-4 button-outline">Create Box</Button>
+              <Button className="z-depth-0 white black-text button-outline">Create Box</Button>
             </div>
         </form>
       </div>
