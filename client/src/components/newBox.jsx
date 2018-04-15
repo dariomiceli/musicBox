@@ -29,12 +29,12 @@ class NewBox extends React.Component {
   render() {
     const { name } = this.state.fields
     return (
-      <div className="add-box-container">
+      <div className="add-box-container white-text">
         <form onChange={this.onFormChange.bind(this)} onSubmit={this.handleFormSubmit.bind(this)}>
-            <h4>What would you like to name your box?</h4>
+            <h4>Name your box:</h4>
             <div className="input-field inline">
               <Input type="text" placeholder="Box Name" id="box-name" name = "name" value={name}/>
-              <Button className="z-depth-0 light-blue accent-2 button-outline">Create Box</Button>
+              <Button className="z-depth-0 light-green accent-4 button-outline">Create Box</Button>
             </div>
         </form>
       </div>

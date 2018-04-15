@@ -44,20 +44,20 @@ class SignUpLogIn extends React.Component {
     return (
       <div className="sign-up-log-in-holder">
         <Modal
-          trigger={<Button className="z-depth-0 light-blue accent-2" waves="light">Log In</Button>}>
+          trigger={<Button className="z-depth-0 white black-text" waves="light">Log In</Button>}>
             <Row>
-              <h1>Log In</h1>
+              <h1 className="front-page-h1">Log In</h1>
               <form onChange={this.onInputChange.bind(this)} onSubmit={this.onLogInFormSubmit.bind(this)}>
                 <Input type="email" name="email" label="Email" s={12} value={email} icon="email"/>
                 <Input type="password" name="password" label="password" s={12} value={password} icon="donut_large" />
-                <Button className="z-depth-0 light-blue accent-2" waves='light'>button</Button>
+                <Button className="z-depth-0 black white-text" waves='light'>Log In</Button>
               </form>
             </Row>
         </Modal>
          <h4><hr></hr></h4>
         <Modal
-          trigger={<Button className="z-depth-0 light-blue accent-2" waves="light">Sign Up</Button>}>
-            <h1>Sign Up</h1>
+          trigger={<Button className="z-depth-0 white black-text" waves="light">Sign Up</Button>}>
+            <h1 className="front-page-h1">Sign Up</h1>
             <Row className="signup-form-holder">
               <form onChange={this.onInputChange.bind(this)} onSubmit={this.onSignUpFormSubmit.bind(this)}>
                 <Input s={6} type="text" label="First Name" name="firstName" value={firstName} />
@@ -75,7 +75,7 @@ class SignUpLogIn extends React.Component {
                     </div>
                   </div>
                 </form>*/}
-                <Button className="z-depth-0 black-text transparent">Make Account</Button>
+                <Button className="z-depth-0 black white-text">Make Account</Button>
               </form>
             </Row>
         </Modal>

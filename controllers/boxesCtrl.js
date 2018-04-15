@@ -4,7 +4,7 @@ const signToken = require('../serverAuth.js').signToken
 module.exports = {
 	// list all boxes
 	index: (req, res) => {
-		Box.find({}, (err, boxes) => {
+		Box.find({user: req.user}, (err, boxes) => {
 			res.json(boxes)
 		})
 	},

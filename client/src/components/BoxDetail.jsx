@@ -105,7 +105,7 @@ class BoxDetail extends React.Component {
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      <a onClick={this.showSearchInput.bind(this, 1)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                      <a onClick={this.showSearchInput.bind(this, 1)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
                     {/* Shows track 1 artist */}
                     {box.track1
@@ -120,7 +120,7 @@ class BoxDetail extends React.Component {
                 {form && track === 1
                   ? (
                     <form onSubmit={this.handleTrackSearch.bind(this)}>
-                      <Input s={12} ref="trackName" label="Track Name"></Input>
+                      <Input className="white-text" s={12} ref="trackName" label="Track Name"></Input>
                     </form>
                   )
                   : null
@@ -151,7 +151,7 @@ class BoxDetail extends React.Component {
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      <a onClick={this.showSearchInput.bind(this, 2)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                      <a onClick={this.showSearchInput.bind(this, 2)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
                     {/* Shows track 2 aritist */}
                     {box.track2
@@ -166,7 +166,7 @@ class BoxDetail extends React.Component {
                   {form && track === 2
                     ? (
                       <form onSubmit={this.handleTrackSearch.bind(this)}>
-                        <Input s={12} label="Track Name" validate></Input>
+                        <Input className="white-text" s={12} label="Track Name" validate></Input>
                       </form>                   
                       )
                     : null
@@ -197,7 +197,7 @@ class BoxDetail extends React.Component {
                           )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      <a onClick={this.showSearchInput.bind(this, 3)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                      <a onClick={this.showSearchInput.bind(this, 3)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
                     {/* Shows track 3 artist */}
                     {box.track3
@@ -212,7 +212,7 @@ class BoxDetail extends React.Component {
                 {form && track === 3
                     ? (
                       <form onSubmit={this.handleTrackSearch.bind(this)}>
-                        <Input s={12} label="Track Name" validate></Input>
+                        <Input className="white-text" s={12} label="Track Name" validate></Input>
                       </form>
                     )
                     : null
@@ -243,7 +243,7 @@ class BoxDetail extends React.Component {
                         )
                         : <h5>Add an artist, album or track!</h5>
                       }
-                      <a onClick={this.showSearchInput.bind(this, 4)} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                      <a onClick={this.showSearchInput.bind(this, 4)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
                      {/* Shows track 4 artist */}
                     {box.track4
@@ -258,7 +258,7 @@ class BoxDetail extends React.Component {
                 {form && track === 4
                     ? (
                       <form onSubmit={this.handleTrackSearch.bind(this)}>
-                      <Input s={12} label="Track Name" validate></Input>
+                      <Input className="white-text" s={12} label="Track Name" validate></Input>
                       </form>
                     )
                     : null
@@ -270,10 +270,11 @@ class BoxDetail extends React.Component {
 
         {/* Delete Modal */}
         <Modal
-          actions={<Button className="z-depth-0 light-blue accent-2">No</Button>}
-          trigger={<Button className="z-depth-0 light-blue accent-2">Delete</Button>}>
+          action={false}
+          trigger={<Button className="z-depth-0 white black-text">Delete</Button>}>
           <span>You want to delete your {box.name} box?</span><br />
-          <Button className="z-depth-0 light-blue accent-2" onClick={this.handleDeleteClick.bind(this)}>Yes!</Button>
+          <Button className="z-depth-0 transparent black-text" onClick={this.handleDeleteClick.bind(this)}>Yes!</Button>
+          <Button className="z-depth-0 transparent black-text">No</Button>
         </Modal>
 
         {/* Search Results Modal */}

@@ -1,19 +1,37 @@
 body {
-  background: white;
+  background: linear-gradient(#3d4356, #181a22);
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  color: white;
+}
+
+.front-page-h1 {
+  color: black;
+}
+
+.btn {
+  margin-top: 10px;
 }
 
 .nav-bar-dropdown {
   text-align: left;
+  color: white!important;
 }
 
 .nav-bar {
-  background: #80d8ff;
+  background: #3b4152;
   height: 55px;
   padding: 0 25px;
 }
 
+.side-nav-links {
+  color: white;
+}
+
 .box-container {
-  border: 1px solid #80d8ff;
   padding: 0 20px;
   margin: 15px
 }
@@ -60,4 +78,12 @@ body {
 
 .card {
   padding-bottom: 18px;
+}
+
+.side-nav {
+  background: white;
+}
+
+li {
+  color: white;
 }

@@ -144,7 +144,7 @@ class Boxes extends React.Component {
                 </div>
               </div>
             </Col>
-            </Row>
+          </Row>
           )
         })}
       </div>

@@ -40,40 +40,39 @@ class App extends Component {
     const { currentUser, boxes } = this.state
     return (
       <div className="App">
-      <Navbar currentUser={currentUser} boxes={boxes}/>
-      <div className="App container">
-        
-        
-        <Switch>
+        <Navbar currentUser={currentUser} boxes={boxes}/>
+        <div className="App container">
+          
+          <Switch>
 
-          <Route path="/login" render={(props) => {
-						return <SignUpLogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
-					}} />
-
-          <Route path="/logout" render={(props) => {
-						return <LogOut onLogOut={this.logOut.bind(this)} />
-					}} />
-
-          <Route path="/users/:id" render={(props) => {
-            return <UserProfile {...props} currentUser={currentUser} />
+            <Route path="/login" render={(props) => {
+              return <SignUpLogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
             }} />
 
-          <Route path="/boxes/new" render={(routeProps) => {
-            return currentUser
-            ? <NewBox {...routeProps} />
-            : <Redirect to="/login" />
-          }} />
+            <Route path="/logout" render={(props) => {
+              return <LogOut onLogOut={this.logOut.bind(this)} />
+            }} />
 
-          <Route path='/boxes/:id' component={BoxDetail} />
-          
-          <Route path="/" render={(routeProps) => {
-            return currentUser
-            ? <Boxes />
-            : <Redirect to="/login" />
-          }} />
+            <Route path="/users/:id" render={(props) => {
+              return <UserProfile {...props} currentUser={currentUser} />
+              }} />
 
-        </Switch>
-      </div>
+            <Route path="/boxes/new" render={(routeProps) => {
+              return currentUser
+              ? <NewBox {...routeProps} />
+              : <Redirect to="/login" />
+            }} />
+
+            <Route path='/boxes/:id' component={BoxDetail} />
+            
+            <Route path="/" render={(routeProps) => {
+              return currentUser
+              ? <Boxes />
+              : <Redirect to="/login" />
+            }} />
+            
+          </Switch>
+        </div>
       </div>
     )
   }

@@ -4,11 +4,11 @@ const
 	boxesCtrl = require('../controllers/boxesCtrl.js'),
 	verifyToken = require('../serverAuth.js').verifyToken
 
+boxesRouter.use(verifyToken)
 boxesRouter.route('/')
 	.get(boxesCtrl.index)
-	.post(verifyToken, boxesCtrl.create)
+	.post(boxesCtrl.create)
 
-boxesRouter.use(verifyToken)
 boxesRouter.route('/:id')
 	.get(boxesCtrl.show)
 	.patch(boxesCtrl.update)
