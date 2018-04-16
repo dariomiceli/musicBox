@@ -46,7 +46,7 @@ Sign up
 ![alt text](./images/allboxes.png "Boxes")
 Viewing all boxes
 
-![alt text](./images/newbox.png "Create Box")
+![alt text](./images/NewBox.png "Create Box")
 Adding a new box
 
 ![alt text](./images/boxdetail.png "View one box")
