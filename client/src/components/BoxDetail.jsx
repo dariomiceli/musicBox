@@ -80,7 +80,7 @@ class BoxDetail extends React.Component {
       <div>
         <div className="box-container">
           <Row>
-            <h3>{box.name}</h3>
+            <h3>{box.name}</h3><hr />
             {/* 1st track */}
             <Col  m={3}>
               <div className="row">
@@ -100,6 +100,7 @@ class BoxDetail extends React.Component {
                         ? (
                           <div>
                           <h5>{this.state.box.track1.name}</h5>
+                          <span className="card-title white-text artist-name">{this.state.box.track1.artist}</span>
                           <a target="_blank" href={`${this.state.box.track1.link}`}>Open in Spotify</a>
                           </div>
                         )
@@ -107,13 +108,6 @@ class BoxDetail extends React.Component {
                       }
                       <a onClick={this.showSearchInput.bind(this, 1)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
-                    {/* Shows track 1 artist */}
-                    {box.track1
-                      ? (
-                        <span className="card-title white-text artist-name">{this.state.box.track1.artist}</span>
-                      )
-                      : null
-                      }
                   </div>
                 </div>
                 {/* Shows search-track input */}
@@ -146,6 +140,7 @@ class BoxDetail extends React.Component {
                         ? (
                           <div>
                           <h5>{box.track2.name}</h5>
+                          <span className="card-title white-text artist-name">{box.track2.artist}</span>
                           <a target="_blank" href={`${this.state.box.track2.link}`}>Open in Spotify</a>
                           </div>
                         )
@@ -153,13 +148,6 @@ class BoxDetail extends React.Component {
                       }
                       <a onClick={this.showSearchInput.bind(this, 2)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
-                    {/* Shows track 2 aritist */}
-                    {box.track2
-                      ? (
-                        <span className="card-title white-text artist-name">{box.track2.artist}</span>
-                      )
-                      : null
-                    }
                   </div>
                 </div>
                   {/* Shows search-track input */}
@@ -192,6 +180,7 @@ class BoxDetail extends React.Component {
                         ? (
                           <div>
                             <h5>{box.track3.name}</h5>
+                            <span className="card-title white-text artist-name">{box.track3.artist}</span>
                             <a target="_blank" href={`${this.state.box.track3.link}`}>Open in Spotify</a>
                           </div>
                           )
@@ -199,13 +188,6 @@ class BoxDetail extends React.Component {
                       }
                       <a onClick={this.showSearchInput.bind(this, 3)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
-                    {/* Shows track 3 artist */}
-                    {box.track3
-                      ? (
-                        <span className="card-title white-text artist-name">{box.track3.artist}</span>
-                        )
-                      : null
-                    }
                   </div>
                 </div>
                 {/* Shows the track-search input */}
@@ -238,6 +220,7 @@ class BoxDetail extends React.Component {
                         ? (
                           <div>
                             <h5>{box.track4.name}</h5>
+                            <span className="card-title white-text artist-name">{box.track4.artist}</span>
                             <a target="_blank" href={`${this.state.box.track4.link}`}>Open in Spotify</a>
                           </div>
                         )
@@ -245,13 +228,6 @@ class BoxDetail extends React.Component {
                       }
                       <a onClick={this.showSearchInput.bind(this, 4)} className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons">add</i></a>
                     </div>
-                     {/* Shows track 4 artist */}
-                    {box.track4
-                      ? (
-                        <span className="card-title white-text artist-name">{box.track4.artist}</span>
-                      )
-                      : null
-                      }
                   </div>
                 </div>
                 {/* Shows the track-search input */}

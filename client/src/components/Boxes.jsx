@@ -25,6 +25,7 @@ class Boxes extends React.Component {
     return(
       <div className="boxes">
       <h2>Your Boxes</h2>
+      <hr />
         {boxes.map((b) => {
           return (
             <Row key={b._id}>
@@ -43,17 +44,14 @@ class Boxes extends React.Component {
                   <div className="card-content">
                     {b.track1
                       ? (
+                        <div>
                         <h5>{b.track1.name}</h5>
+                        <span className="card-title white-text artist-name">{b.track1.artist}</span>
+                        </div>
                       )
                       : <h5>Add an artist, album or track!</h5>
                     }
                   </div>
-                  {b.track1
-                    ? (
-                      <span className="card-title white-text artist-name">{b.track1.artist}</span>
-                    )
-                    : null
-                    }
                 </div>
               </div>
             </Col>
@@ -72,17 +70,14 @@ class Boxes extends React.Component {
                   <div className="card-content">
                     {b.track2
                       ? (
+                        <div>
                         <h5>{b.track2.name}</h5>
+                        <span className="card-title white-text artist-name">{b.track2.artist}</span>
+                        </div>
                       )
                       : <h5>Add an artist, album or track!</h5>
                     }
                   </div>
-                  {b.track2
-                    ? (
-                      <span className="card-title white-text artist-name">{b.track2.artist}</span>
-                    )
-                    : null
-                    }
                 </div>
               </div>
             </Col>
@@ -101,17 +96,14 @@ class Boxes extends React.Component {
                   <div className="card-content white-text">
                     {b.track3
                       ? (
+                        <div>
                         <h5>{b.track3.name}</h5>
+                        <span className="card-title white-text artist-name">{b.track3.artist}</span>
+                        </div>
                       )
                       : <h5>Add an artist, album or track!</h5>
                     }
                   </div>
-                  {b.track3
-                    ? (
-                      <span className="card-title white-text artist-name">{b.track3.artist}</span>
-                    )
-                    : null
-                    }
                 </div>
               </div>
             </Col>
@@ -130,17 +122,14 @@ class Boxes extends React.Component {
                   <div className="card-content">
                     {b.track4
                       ? (
+                        <div>
                         <h5>{b.track4.name}</h5>
+                        <span className="card-title white-text artist-name">{b.track4.artist}</span>
+                        </div>
                       )
                       : <h5>Add an artist, album or track!</h5>
                     }
                   </div>
-                  {b.track4
-                    ? (
-                      <span className="card-title white-text artist-name">{b.track4.artist}</span>
-                    )
-                    : null
-                    }
                 </div>
               </div>
             </Col>

@@ -1,10 +1,10 @@
 # musicBox
 
-![alt text](./images/login "Homepage Screenshot")
+![alt text](./images/login.png "Homepage Screenshot")
 
-musicBox is music organizing web app using NodeJS, Express, MongoDB and React. musicBox allows users to create 'boxes' where they can hold up to 5 tracks. Using the Spotify API, users can search for tracks and add them to thier 'boxes', which they can create and unlimited amount of and can edit and view them from a list. 
+musicBox is music organization web application using NodeJS, Express, MongoDB and React. musicBox allows users to create 'boxes' where they can hold up to 5 tracks. Using the Spotify API, users can search for tracks and add them to thier 'boxes', which they can create an unlimited amount of and can edit and view them from a list. 
 
-The most attractive aspect of musicBox is its minimalist approach to music collections. The deluge of playlists, curated or otherwise, is overwhelming - with many items getting lost in the fold. musicBox allows
+The most attractive aspect of musicBox is its minimalist approach to music collections. The deluge of playlists and other related content, curated or otherwise, is overwhelming - with many items getting lost in the fold. musicBox focuses users, demanding creativity and a minimalist approach to an otherwise uncreative and overbearing industry. 
 
 [Visit musicBox](https://infinite-inlet-15903.herokuapp.com/ "DMEconnect")
 
@@ -26,44 +26,41 @@ The most attractive aspect of musicBox is its minimalist approach to music colle
 ### Approach
 The idea for this web app came from a real-world need to better communicate within my organization. Scattered text and Facebook messages led to an unorganized and inefficient process. 
 
+![alt text](./images/3.jpg "Homepage Screenshot")
+Basic Wireframe
+
 I began by wireframing with Balsamiq. This helped me develop a general design and also aided in user flow.
 
-![alt text](./ReadMeImages/ERD.png "Homepage Screenshot")
-ERD
+![alt text](./images/signup.png "Homepage Screenshot")
+Sign up
 
-![alt text](./ReadMeImages/Wire-frame-flow.png "Homepage Screenshot")
-User Flow
+![alt text](./images/allboxes.png "Homepage Screenshot")
+Viewing all boxes
 
-![alt text](./ReadMeImages/Wire-frame-homepage.png "Homepage Screenshot")
-Homepage
+![alt text](./images/newbox.png "Homepage Screenshot")
+Adding a new box
 
-![alt text](./ReadMeImages/Wire-frame-EPK.png "Homepage Screenshot")
-Adding an EPK
+![alt text](./images/boxdetail.png "Homepage Screenshot")
+Viewing a specific box
 
 Work began with basic design, then moved to functionality. Adding events, shareables and EPK change requests was the first function to be compelted. I then moved onto admin permissions and user authentication and authorization. 
 
 ### Installation
 
-To run DMEconnect locally:
+To run musicBox locally:
 
 * Clone this repo to your machine
 * Cd into the app
-* Run 'bundle install'
-* Run 'rails db:create'
-* Run 'rails db:migrate'
+* Run 'npm install'
+* Cd into Client and run 'npm intstall && npm start'
 * Open 'localhost:3000' in your browser
 
-### Next Steps
+### Future Work
 
-In the future DMEconnect will be more integrated with social media platforms, allowing for quick-share links and importation of user profile information. 
+musicBox needs additional functionality. First, each box needs to be shareable. Second, tracks need to have embedded Spotify players so music could be listened to inside the app. Third, Spotify's API has so much to offer and this app should utilize much more of it - including track details, audio features and audio analysis of tracks. 
 
-The design can be improved to give better visibility and access to users. 
+Additional styling and debugging also is required. 
 
-### Task Management
-
-Trello was the primary task manager for this project. Before I began design any code work I laid out user stories for two different 
-
-[View Trello board here.](https://trello.com/b/JZuSXEjV/project-2 "Project 2 Trello Board")
 
 
 
