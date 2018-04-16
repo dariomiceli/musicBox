@@ -6,7 +6,7 @@ musicBox is music organization web application using NodeJS, Express, MongoDB an
 
 The most attractive aspect of musicBox is its minimalist approach to music collections. The deluge of playlists and other related content, curated or otherwise, is overwhelming - with many items getting lost in the fold. musicBox focuses users, demanding creativity and a minimalist approach to an otherwise uncreative and overbearing industry. 
 
-[Visit musicBox](https://infinite-inlet-15903.herokuapp.com/ "DMEconnect")
+[Visit musicBox](https://mighty-ravine-55140.herokuapp.com/ "musicBox")
 
 ### Technologies Used
 * HTML
@@ -22,28 +22,37 @@ The most attractive aspect of musicBox is its minimalist approach to music colle
 	* Axios, Body-parser, dotenv, JSON Web Tokens, Mongoose, morgan, node-spotify-api, React-DOM, React-Router-DOM
 
 ### Stories
+* I am a user and I want to: 
+	* create an account and log in
+	* create a music box with a custom name
+	* add songs to my boxes
+	* edit songs
+	* delete boxes
 
 ### Approach
-The idea for this web app came from a real-world need to better communicate within my organization. Scattered text and Facebook messages led to an unorganized and inefficient process. 
+The ideation phase began with a basic concept: how minimally can music be stored and organized? Limiting the amount of songs users could collect, while giving them near-unlimited choices is a paradoxically essential aspect of musicBox. 
 
-![alt text](./images/3.jpg "Homepage Screenshot")
+![alt text](./images/3.jpg "Wireframe")
 Basic Wireframe
 
-I began by wireframing with Balsamiq. This helped me develop a general design and also aided in user flow.
+![alt text](./images/5.jpg "User Flow")
+User Flow
 
-![alt text](./images/signup.png "Homepage Screenshot")
+The next step was building the backend. Two models, controllers and routers make up the musicBox API. The third step was design, which was facilitated by the Materialize CSS Framework. Forms, Modals, Cards and NavBars make up the front end.
+
+![alt text](./images/signup.png "Sign Up")
 Sign up
 
-![alt text](./images/allboxes.png "Homepage Screenshot")
+![alt text](./images/allboxes.png "Boxes")
 Viewing all boxes
 
-![alt text](./images/newbox.png "Homepage Screenshot")
+![alt text](./images/newbox.png "Create Box")
 Adding a new box
 
-![alt text](./images/boxdetail.png "Homepage Screenshot")
+![alt text](./images/boxdetail.png "View one box")
 Viewing a specific box
 
-Work began with basic design, then moved to functionality. Adding events, shareables and EPK change requests was the first function to be compelted. I then moved onto admin permissions and user authentication and authorization. 
+The app is rounded out by the utilization of the Spotify API through the node-spotify-api NPM package. 
 
 ### Installation
 
@@ -57,7 +66,7 @@ To run musicBox locally:
 
 ### Future Work
 
-musicBox needs additional functionality. First, each box needs to be shareable. Second, tracks need to have embedded Spotify players so music could be listened to inside the app. Third, Spotify's API has so much to offer and this app should utilize much more of it - including track details, audio features and audio analysis of tracks. 
+musicBox needs additional functionality. First, each box needs to be shareable. Second, tracks need to have embedded Spotify players so music could be listened to inside the app. Third, Spotify's API has so much to offer and this app should utilize much more of it - including track details, audio features and audio analysis of tracks. Fourth, in addition to tracks, albums and artists could also be added. 
 
 Additional styling and debugging also is required. 
 
